@@ -47,10 +47,10 @@ has_one :order
 | house_number  | string     | null: false
 | building_name | string     |
 | phone_number  | string     | null: false
-| user          | references | foreign_key: true
+| order_id      | references | foreign_key: true
 
 ### Association
-has_one :order
+belongs_to :order
 
 ## Ordersテーブル
 
@@ -61,5 +61,5 @@ has_one :order
 
 ### Association
 belongs_to :user
-belongs_to :address
+has_one :address
 belongs_to :item
