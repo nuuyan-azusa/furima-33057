@@ -5,15 +5,16 @@
 | Column             | Type       | Options
 | ------------------ | ---------- | -----------------
 | nickname           | string     | null: false
+| first_name         | string     | null: false
+| last_name          | string     | null: false
+| first_name_reading | string     | null: false
+| last_name_reading  | string     | null: false
 | email              | string     | null: false
 | encrypted_password | string     | null: false
-| birthday           | integer    | null: false
-| address            | references | foreign_key: true
-| item               | references | foreign_key: true
+| birthday           | date       | null: false
 
 ### Association
 
-has_one :address
 has_many :items
 has_one :order
 
@@ -34,7 +35,6 @@ has_one :order
 ### Association
 
 belongs_to :user
-has_one :address
 has_one :order
 
 ## addressesテーブル
@@ -45,13 +45,12 @@ has_one :order
 | prefecture_id | integer    | null: false
 | city          | string     | null: false
 | house_number  | string     | null: false
+| building_name | string     |
 | phone_number  | string     | null: false
 | user          | references | foreign_key: true
 
 ### Association
-belongs_to :order
-belongs_to :item
-has_many :users
+has_one :order
 
 ## Ordersテーブル
 
@@ -59,7 +58,6 @@ has_many :users
 | ------- | ---------- | -----------------
 | user    | references | foreign_key: true
 | item    | references | foreign_key: true
-| address | references | foreign_key: true
 
 ### Association
 belongs_to :user
