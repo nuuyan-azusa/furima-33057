@@ -16,7 +16,7 @@
 ### Association
 
 has_many :items
-has_one :order
+has_many :order
 
 ## itemsテーブル
 
@@ -28,7 +28,7 @@ has_one :order
 | category_id         | integer    | null: false
 | state_id            | integer    | null: false
 | delivery_fee_id     | integer    | null: false
-| delivery_area_id    | integer    | null: false
+| prefecture_id       | integer    | null: false
 | delivery_by_days_id | integer    | null: false
 | user                | references | foreign_key: true
 
@@ -47,7 +47,7 @@ has_one :order
 | house_number  | string     | null: false
 | building_name | string     |
 | phone_number  | string     | null: false
-| order_id      | references | foreign_key: true
+| order         | references | foreign_key: true
 
 ### Association
 belongs_to :order
