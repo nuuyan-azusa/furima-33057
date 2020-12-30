@@ -67,10 +67,20 @@ end
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
       end
+      it "first_nameが漢字・平仮名・カタカナ以外では登録できない" do
+        @user.first_name = "suzuki"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name is invalid. Input full-width characters.")
+      end
       it "last_nameが空だと登録できない" do
         @user.last_name = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
+      end
+      it "last_nameが漢字・平仮名・カタカナ以外では登録できない" do
+        @user.last_name = "taro"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name is invalid. Input full-width characters.")
       end
       it "first_name_readingが空だと登録できない" do
         @user.first_name_reading = nil
