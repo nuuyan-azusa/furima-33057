@@ -47,8 +47,8 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture Select")
     end
-    it 'delivery_by_daysが空だと保存できない' do
-      @item.delivery_by_days_id = nil
+    it 'delivery_by_dayが空だと保存できない' do
+      @item.delivery_by_day_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery by days Select")
     end

@@ -19,5 +19,5 @@ class Item < ApplicationRecord
     validates :state_id,            numericality: { other_than: 0, message: "Select" }
     validates :delivery_fee_id,     numericality: { other_than: 0, message: "Select" }
     validates :prefecture_id,       numericality: { other_than: 0, message: "Select" }
-    validates :delivery_by_days_id, numericality: { other_than: 0, message: "Select" }
+    validates :delivery_by_day_id,  numericality: { other_than: 0, message: "Select" }
 end
