@@ -7,7 +7,7 @@ end
 
   describe "ユーザー新規登録" do
     context '新規登録がうまくいくとき' do
-      it "全ての情報が入力されていれば登録できる" do
+      it "全ての情報が正しく入力されていれば登録できる" do
        expect(@user).to be_valid
       end
     end
