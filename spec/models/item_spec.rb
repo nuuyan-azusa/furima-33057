@@ -32,13 +32,28 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Category Select")
     end
+    it 'categoryが0だと保存できない' do
+      @item.category_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category Select")
+    end
     it 'stateが空だと保存できない' do
       @item.state_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("State Select")
     end
+    it 'stateが0だと保存できない' do
+      @item.state_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("State Select")
+      end
     it 'delivery_feeが空だと保存できない' do
       @item.delivery_fee_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Delivery fee Select")
+    end
+    it 'delivery_feeが0だと保存できない' do
+      @item.delivery_fee_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery fee Select")
     end
@@ -47,10 +62,20 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture Select")
     end
+    it 'prefectureが0だと保存できない' do
+      @item.prefecture_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Prefecture Select")
+    end
     it 'delivery_by_dayが空だと保存できない' do
       @item.delivery_by_day_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery by days Select")
+      expect(@item.errors.full_messages).to include("Delivery by day Select")
+    end
+    it 'delivery_by_dayが0だと保存できない' do
+      @item.delivery_by_day_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Delivery by day Select")
     end
     it 'priceが空だと保存できない' do
       @item.price = nil
@@ -79,3 +104,4 @@ RSpec.describe Item, type: :model do
     end
   end
 end
+
