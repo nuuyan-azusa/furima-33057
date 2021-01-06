@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
-  before_action :move_order, only: [:index,:create]
+  before_action :move_order, only: [:index, :create]
 
   def index
     @user_order = UserOrder.new
@@ -31,9 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def move_order
-    if @item.order.present? || current_user == @item.user
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.order.present? || current_user == @item.user
   end
 
   def pay_item
@@ -44,5 +42,4 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
-
 end
