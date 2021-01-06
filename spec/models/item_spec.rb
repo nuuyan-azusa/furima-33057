@@ -27,52 +27,27 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Text can't be blank")
     end
-    it 'categoryが空だと保存できない' do
-      @item.category_id = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Category Select')
-    end
-    it 'categoryが0だと保存できない' do
+    it 'category_idが0だと保存できない' do
       @item.category_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Category Select')
     end
-    it 'stateが空だと保存できない' do
-      @item.state_id = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include('State Select')
-    end
-    it 'stateが0だと保存できない' do
+    it 'state_idが0だと保存できない' do
       @item.state_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('State Select')
     end
-    it 'delivery_feeが空だと保存できない' do
-      @item.delivery_fee_id = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Delivery fee Select')
-    end
-    it 'delivery_feeが0だと保存できない' do
+    it 'delivery_fee_idが0だと保存できない' do
       @item.delivery_fee_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Delivery fee Select')
     end
-    it 'prefectureが空だと保存できない' do
-      @item.prefecture_id = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Prefecture Select')
-    end
-    it 'prefectureが0だと保存できない' do
+    it 'prefecture_idが0だと保存できない' do
       @item.prefecture_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Prefecture Select')
     end
-    it 'delivery_by_dayが空だと保存できない' do
-      @item.delivery_by_day_id = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Delivery by day Select')
-    end
-    it 'delivery_by_dayが0だと保存できない' do
+    it 'delivery_by_day_idが0だと保存できない' do
       @item.delivery_by_day_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Delivery by day Select')
