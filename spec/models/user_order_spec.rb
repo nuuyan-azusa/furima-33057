@@ -56,5 +56,10 @@ RSpec.describe UserOrder, type: :model do
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include('Phone number Phone number Input only number')
     end
+    it 'phone_numberは11桁以内でないと保存できない' do
+      @user_order.phone_number = '090123456789'
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Phone number Phone number Input only number")
+    end
   end
 end
