@@ -42,6 +42,8 @@ class ItemsController < ApplicationController
     end
   end
 
+  private
+  
   def set_item
     @item = Item.find(params[:id])
   end
@@ -49,9 +51,7 @@ class ItemsController < ApplicationController
   def move_item
     redirect_to root_path unless current_user.id == @item.user.id
   end
-
-  private
-
+  
   def item_params
     params.require(:item).permit(:text, :price, :name, :category_id, :state_id, :delivery_fee_id, :prefecture_id, :delivery_by_day_id,
                                  :image).merge(user_id: current_user.id)
