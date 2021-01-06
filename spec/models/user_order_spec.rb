@@ -31,8 +31,8 @@ RSpec.describe UserOrder, type: :model do
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include('Postal code Input correctly')
     end
-    it 'prefecture_idが空だと保存できない' do
-      @user_order.prefecture_id = nil
+    it 'prefecture_idが0だと保存できない' do
+      @user_order.prefecture_id = 0
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include('Prefecture Select')
     end
@@ -60,6 +60,21 @@ RSpec.describe UserOrder, type: :model do
       @user_order.phone_number = '090123456789'
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include("Phone number Phone number Input only number")
+    end
+    it 'phone_numberは英数混合では保存できない' do
+      @user_order.phone_number = 'a0901234567'
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Phone number Phone number Input only number")
+    end
+    it 'user_idが空では保存できない' do
+      @user_order.user_id = nil
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("User can't be blank")
+    end
+    it 'item_idが空では保存できない' do
+      @user_order.item_id = nil
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Item can't be blank")
     end
   end
 end
