@@ -31,4 +31,3 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
-# server '3.131.254.79', user: 'ec2-user', roles: %w{app db web}
