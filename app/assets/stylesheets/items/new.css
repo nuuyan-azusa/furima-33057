@@ -227,3 +227,8 @@
 .inc {
   font-size: 13px;
 }
+
+.itemImage{
+  width: 80%;
+  height: 80%;
+}
