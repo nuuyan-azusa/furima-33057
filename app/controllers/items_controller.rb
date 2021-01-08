@@ -50,6 +50,9 @@ class ItemsController < ApplicationController
 
   def move_item
     redirect_to root_path unless current_user.id == @item.user.id
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def item_params
