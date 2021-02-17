@@ -15,17 +15,17 @@ RSpec.describe Item, type: :model do
     it 'imageが空だと保存できない' do
       @item.image = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("画像を入力してください")
+      expect(@item.errors.full_messages).to include('画像を入力してください')
     end
     it 'nameが空だと保存できない' do
       @item.name = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("商品名を入力してください")
+      expect(@item.errors.full_messages).to include('商品名を入力してください')
     end
     it 'textが空だと保存できない' do
       @item.text = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+      expect(@item.errors.full_messages).to include('商品の説明を入力してください')
     end
     it 'category_idが0だと保存できない' do
       @item.category_id = 0
@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
     it 'priceが空だと保存できない' do
       @item.price = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("販売価格を入力してください")
+      expect(@item.errors.full_messages).to include('販売価格を入力してください')
     end
     it 'priceが半角数字でないと保存できない' do
       @item.price = '２０００'
